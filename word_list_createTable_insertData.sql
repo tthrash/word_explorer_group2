@@ -1,11 +1,3 @@
--- phpMyAdmin SQL Dump
--- version 4.5.1
--- http://www.phpmyadmin.net
---
--- Host: 127.0.0.1
--- Generation Time: Feb 18, 2017 at 08:36 AM
--- Server version: 5.7.10-log
--- PHP Version: 7.0.13
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,41 +9,44 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `db_nam`
+-- Enter Database
 --
-
+Use ics325;
 -- --------------------------------------------------------
 
+-- If there exists a table called word_list drop it.
+
+DROP TABLE IF EXISTS word_list;
 --
--- Table structure for table `word_list`
+-- Table structure for table 'word_list'
 --
 
-CREATE TABLE `word_list` (
-  `topic` varchar(20) DEFAULT NULL,
-  `image` varchar(20) DEFAULT NULL,
-  `english` varchar(20) NOT NULL,
-  `telugu` varchar(20) DEFAULT NULL,
-  `hindi` varchar(20) DEFAULT NULL,
-  `kannada` varchar(20) DEFAULT NULL,
-  `gujarathi` varchar(20) DEFAULT NULL,
-  `malayalam` varchar(20) DEFAULT NULL,
-  `telugu_in_english` varchar(20) DEFAULT NULL,
-  `english_in_telugu` varchar(20) DEFAULT NULL,
-  `hindi_in_english` varchar(20) DEFAULT NULL,
-  `english_in_hindi` varchar(20) DEFAULT NULL,
-  `kannada_in_english` varchar(20) DEFAULT NULL,
-  `english_in_kannada` varchar(20) DEFAULT NULL,
-  `gujarathi_in_english` varchar(20) DEFAULT NULL,
-  `english_in_gujarathi` varchar(20) DEFAULT NULL,
-  `malayalam_in_english` varchar(20) DEFAULT NULL,
-  `english_in_malayalam` varchar(20) DEFAULT NULL
+CREATE TABLE word_list (
+  topic varchar(20) DEFAULT NULL,
+  image varchar(20) DEFAULT NULL,
+  english varchar(20) NOT NULL,
+  telugu varchar(20) DEFAULT NULL,
+  hindi varchar(20) DEFAULT NULL,
+  kannada varchar(20) DEFAULT NULL,
+  gujarathi varchar(20) DEFAULT NULL,
+  malayalam varchar(20) DEFAULT NULL,
+  telugu_in_english varchar(20) DEFAULT NULL,
+  english_in_telugu varchar(20) DEFAULT NULL,
+  hindi_in_english varchar(20) DEFAULT NULL,
+  english_in_hindi varchar(20) DEFAULT NULL,
+  kannada_in_english varchar(20) DEFAULT NULL,
+  english_in_kannada varchar(20) DEFAULT NULL,
+  gujarathi_in_english varchar(20) DEFAULT NULL,
+  english_in_gujarathi varchar(20) DEFAULT NULL,
+  malayalam_in_english varchar(20) DEFAULT NULL,
+  english_in_malayalam varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `word_list`
+-- Dumping data for table 'word_list'
 --
 
-INSERT INTO `word_list` (`topic`, `image`, `english`, `telugu`, `hindi`, `kannada`, `gujarathi`, `malayalam`, `telugu_in_english`, `english_in_telugu`, `hindi_in_english`, `english_in_hindi`, `kannada_in_english`, `english_in_kannada`, `gujarathi_in_english`, `english_in_gujarathi`, `malayalam_in_english`, `english_in_malayalam`) VALUES
+INSERT INTO word_list (topic, image, english, telugu, hindi, kannada, gujarathi, malayalam, telugu_in_english, english_in_telugu, hindi_in_english, english_in_hindi, kannada_in_english, english_in_kannada, gujarathi_in_english, english_in_gujarathi, malayalam_in_english, english_in_malayalam) VALUES
 ('animal', 'ant.png', 'ant', 'చీమల', 'चींटी', 'ಇರುವೆ', 'કીડી', 'ഉറുന്വ്', 'Cīmala', 'ఆంట్ ', 'cheentee', 'ant', 'Iruve', 'ಅಂಟ್', 'Kīḍī', 'અંત ', 'uṟunv', 'ant'),
 ('food', 'bread.jpg', 'bread', 'బ్రెడ్', 'रोटी', 'ಬ್ರೆಡ್', 'બ્રેડ', 'റൊട്ടി', 'breḍ', 'బ్రెడ్ ', 'rotee', 'braiad', 'breḍ', 'ಬ್ರೆಡ್ ', 'brēḍa', 'બ્રેડ ', 'ṟeāṭṭi', 'bread'),
 ('animal', 'cat.jpg', 'cat', 'పిల్లి', 'हवाई  ', 'ಚಾಸಿಸ್', 'ચેસિસ', 'ചേസിസ്', 'pilli', 'చట్ ', 'havaee ', 'chat', 'cāsis', 'ಕ್ಯಾಟ್', 'cēsisa', 'કેટ ', 'cēsis', 'cat'),
@@ -64,7 +59,6 @@ INSERT INTO `word_list` (`topic`, `image`, `english`, `telugu`, `hindi`, `kannad
 ('animal', 'eel.jpg', 'eel', 'ఈల్', 'बाममछली', 'ಈಲ್', 'ઇલ', 'ആരല്', 'īl', 'ఈల్ ', 'baamamachhalee', 'aiail', 'īl', 'ಎಎಲ್ ', 'ila', 'એલ ', 'āral', 'eel'),
 ('food', 'eggs.jpg', 'eggs', 'గుడ్లు', 'अंडे', 'ಮೊಟ್ಟೆಗಳು', 'ઇંડા', 'മുട്ടകൾ', 'guḍlu', 'ఎగ్స్ ', 'ande', 'aiggs', 'moṭṭegaḷu', 'ಎಗ್ಸ್ ', 'iṇḍā', 'એગગ્સ ', 'muṭṭakaḷ', 'eggs'),
 ('animal', 'elephant.jpg', 'elephant', 'ఏనుగు', 'हाथी', 'ಆನೆ', 'હાથી', 'ആന', 'ēnugu', 'ఎలిఫెంట్ ', 'haathee', 'ailaiphant', 'āne', 'ಎಲಿಫೆಂಟ್ ', 'hāthī', 'એલેફન્ટ ', 'āna', 'elephant'),
-('topic', 'image', 'english', 'telugu', 'hindi', 'kannada', 'gujarathi', 'malayalam', 'telugu_in_english', 'english_in_telugu', 'hindi_in_english', 'english_in_hindi', 'kannada_in_english', 'english_in_kannada', 'gujarathi_in_english', 'english_in_gujarathi', 'malayalam_in_english', 'english_in_malayalam'),
 ('school', 'eraser.jpg', 'eraser', 'ఎరేజర్', 'लिखना', 'ಬರೆಯಿರಿ', 'લખો', 'എഴുതുക', 'erējar', 'రేజర్ ', 'likhana', 'airasair', 'bareyiri', 'ಎರಸೆರ್ ', 'lakhō', 'એરસેર ', 'eḻutuka', 'eraser'),
 ('animal', 'fish.jpg', 'fish', 'చేపలు', 'मछली', 'ಮೀನು', 'માછલી', 'ഫിഷ്', 'cēpalu', 'ఫిష్ ', 'machhalee', 'fish', 'mīnu', 'ಫಿಶ್ ', 'māchalī', 'ફિશ ', 'phiṣ', 'fish'),
 ('animal', 'fox.jpg', 'fox', 'నక్క', 'लोमड़ी', 'ಫಾಕ್ಸ್', 'ફોક્સ', 'കുറുക്കന്', 'nakka', 'ఫాక్స్ ', 'lomri', 'fox', 'phāks', 'ಫಾಕ್ಸ್', 'phōksa', 'ફોક્સ ', 'kuṟukkan', 'fox'),
@@ -83,10 +77,10 @@ INSERT INTO `word_list` (`topic`, `image`, `english`, `telugu`, `hindi`, `kannad
 --
 
 --
--- Indexes for table `word_list`
+-- Indexes for table 'word_list'
 --
-ALTER TABLE `word_list`
-  ADD PRIMARY KEY (`english`);
+ALTER TABLE word_list
+  ADD PRIMARY KEY (english);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
