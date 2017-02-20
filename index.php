@@ -28,12 +28,31 @@ $stmt->bind_result($topic, $image, $english, $telugu, $hindi, $kannada, $gujarat
   <body>
 	<div class="container">
 	 <center> 
+	 <div>
+
+	</div>
 	<div class="row">
 		<hr />
+		
+		<span class="icon_align">
 		<form action="add_word.php" class="center">
 			<span class="icon_align"><h2>Welcome to Word Explorer</h2></span>
 			<input type="image" src="images/add.jpg" alt="submit" style="width: 22px;">
 		</form>
+		</span>
+		
+		<span class="icon_align">
+		<form action="export.php">
+			<input type="button" alt="import button" value="import" style="font-size: 150%;">
+		</form>
+		</span>
+		
+		<span class="icon_align">
+		<form action="export.php">
+			<input type="button" alt="export button" value="export" style="font-size: 150%;">
+		</form>
+		</span>
+		
 		<div id="demo">
 			<?php  
 				echo "<table class='table table-striped'>\n";
