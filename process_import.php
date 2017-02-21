@@ -31,8 +31,8 @@
 							}
 					}
 			}
-			$query2 = "DROP TABLE IF EXISTS word_list";
-			$result = $db->prepare($query2);
+			$query = "DROP TABLE IF EXISTS word_list";
+			$result = $db->prepare($query);
 			$result->execute();
 			
 			$query = "
@@ -61,16 +61,23 @@
 			$result->execute();
 			
 			unset($dataArr[1]); // first row not needed
-			
+			$i = 0;
 			foreach($dataArr as $val){
-				$query1 = "INSERT INTO word_list (topic, image, english, telugu, hindi, kannada, gujarathi, malayalam, telugu_in_english, english_in_telugu, hindi_in_english, english_in_hindi, kannada_in_english, english_in_kannada, gujarathi_in_english, english_in_gujarathi, malayalam_in_english, english_in_malayalam) VALUES ('" . $val[0] . "','" . $val[1] . "','" . $val[2] . "','" . $val[3] . "','" .  $val[4] . "','" . $val[5] . "','" . $val[6] . "','" . $val[7] . "','" .  $val[8] . "','" . $val[9] . "','" . $val[10] . "','" . $val[11] . "','" .  $val[12] . "','" . $val[13] . "','" . $val[14] . "','" . $val[15] . "','" . $val[16] . "','" . $val[17] . "')";
-				$result = $db->prepare($query1);
+				$query = "INSERT INTO word_list (topic, image, english, telugu, hindi, kannada, gujarathi, malayalam, telugu_in_english, english_in_telugu, hindi_in_english, english_in_hindi, kannada_in_english, english_in_kannada, gujarathi_in_english, english_in_gujarathi, malayalam_in_english, english_in_malayalam) VALUES ('" . processWord($val[0]) . "','" . processWord($val[1]). "','" . processWord($val[2]) . "','" . processWord($val[3]) . "','" .  processWord($val[4]) . "','" . processWord($val[5]) . "','" . processWord($val[6]) . "','" . processWord($val[7]) . "','" .  processWord($val[8]) . "','" . processWord($val[9]) . "','" . processWord($val[10]) . "','" . processWord($val[11]) . "','" .  processWord($val[12]) . "','" . processWord($val[13]) . "','" . processWord($val[14]) . "','" . processWord($val[15]) . "','" . processWord($val[16]) . "','" . processWord($val[17]) . "');";
+				// echo $i++. ": ".$query. "</br></br>";
+				$result = $db->prepare($query);
 			    $result->execute();
 			}
 		}
 		else {
 			echo 'not submited';
 		}
+	}
+	
+	function processWord($word)
+	{
+		$word = str_replace("'", "\'", $word);
+		return $word;
 	}
 	header("Location: index.php");
 ?>
