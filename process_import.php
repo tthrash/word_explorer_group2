@@ -1,21 +1,47 @@
 <?php
-	uploader();
+	
+	$name = $_FILES['userFile']['name'];
+	$loc = 'uploads/';
+	
+	if(isset($name))
+	{
+		if(!empty($name))
+		{
+			$tmp_name =  $_FILES['userFile']['tmp_name'];
+			
+			if(move_uploaded_file($tmp_name, $name))
+			{
+				uploader();
+			}
+			else{
+				echo 'file couldn\'t be uploaded';
+			}
+		}
+		else{
+			echo 'No file was selected.';
+		}
+	}
+	
 	function uploader() {
 		if ($_SERVER['REQUEST_METHOD'] === "POST") {
 			//include the following 2 files
 			require 'PHPExcel/PHPExcel.php';
 			require("db_configuration.php");
 			require_once 'PHPExcel/PHPExcel/IOFactory.php';
-
+			
+				$name = $_FILES['userFile']['name'];
+				$loc = 'uploads/';
+	
+			$filePath = $loc.$name;
 			// Create new PHPExcel object
-			$objPHPExcel = PHPExcel_IOFactory::load(basename($_FILES['userFile']['name']));
+			$objPHPExcel = PHPExcel_IOFactory::load(basename($filePath));
 			 
 			$dataArr = array();
 			 
 			foreach ($objPHPExcel->getWorksheetIterator() as $worksheet) {
 					$worksheetTitle     = $worksheet->getTitle();
 					$highestRow         = $worksheet->getHighestRow(); 
-					$highestColumn      = $worksheet->getHighestColumn();
+					$highestColumn    = $worksheet->getHighestColumn();
 					$highestColumnIndex = PHPExcel_Cell::columnIndexFromString($highestColumn);
 					echo "<p>number of rows :" . $highestRow . "</p>";
 					echo "<p>number of columns :" . $highestColumn . "</p>";

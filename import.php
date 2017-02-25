@@ -19,15 +19,6 @@
 		</fieldset>
 	</form>
 	 <script type="text/javascript">
-            function alertFilename()
-            {
-                var thefile = document.getElementById('thefile');
-                alert(thefile.value);
-            }
     </script>
-        <form>
-            <input type="file" id="thefile" onchange="alertFilename()" />
-            <input type="button" onclick="alertFilename()" value="alert" />
-        </form>
 	</body>
 </html>
