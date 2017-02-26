@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>word_explorer</title>
+  <title>Bootstrap Example</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -68,25 +68,25 @@
     <div class="carousel-inner" role="listbox">
       <div class="item active">
 				<span class="textbar topbar"><div>Enjhbkjhvj,glish</div><div>English</div><div>English</div></span>
-        <img src="ant.jpg" alt="ant" >
+        <img src="images/ant.jpg" alt="ant" >
 				<span class="textbar bottombar"><div>English</div><div>English</div><div>English</div></span>
       </div>
 
       <div class="item">
 				<span class="textbar topbar"><div>Enjhbkjhvj,glish</div><div>English</div><div>English</div></span>
-        <img src="cat.jpg" alt="bread" >
+        <img src="images/cat.jpg" alt="bread" >
 				<span class="textbar bottombar"><div>English</div><div>English</div><div>English</div></span>
       </div>
     
       <div class="item">
 				<span class="textbar topbar"><div>Enjhbkjhvj,glish</div><div>English</div><div>English</div></span>
-        <img src="chicken.jpg" alt="chicken" >
+        <img src="images/chicken.jpg" alt="chicken" >
 				<span class="textbar bottombar"><div>English</div><div>English</div><div>English</div></span>
       </div>
 
       <div class="item">
 				<span class="textbar topbar"><div>Enjhbkjhvj,glish</div><div>English</div><div>English</div></span>
-        <img src="cereal.jpg" alt="cereal" >
+        <img src="images/cereal.jpg" alt="cereal" >
 				<span class="textbar bottombar"><div>English</div><div>English</div><div>English</div></span>
       </div>
     </div>
