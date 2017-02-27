@@ -1,5 +1,48 @@
-
-.icon_align {
+.align{
 	display: inline-block;
 	margin: 10px;
+}
+
+.main_buttons {
+    background-color: #white; /* Green */
+    border: 2px solid #4CAF50;
+    color: black;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.main_buttons:hover {
+    background-color: #4CAF50;
+    color: white;
+}
+
+div.scroll {
+    background-color: #00FFFF;
+    width: 100px;
+    height: 100px;
+    overflow: scroll;
+}
+
+.align1
+{
+	float: left;
+}
+
+.align2 {
+	float: right;
+}
+
+.item {
+	color: white;
+}
+
+.select{
+	width: 50px;
 }
