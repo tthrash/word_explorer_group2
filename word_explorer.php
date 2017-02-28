@@ -1,5 +1,4 @@
 <?php
-	require('db_configuration.php');
 	require('process_word_explorer.php');
 ?> 
 <!DOCTYPE html>
@@ -64,7 +63,7 @@
 
 	<div class="container">
 		
-		<form action="process_word_explorer.php" method="post">
+		<form action="#" method="post">
 		<center>
 	  
 		<span class="align">
@@ -91,52 +90,61 @@
 		<input type="submit" name="all" alt="All button" value="All" class="main_buttons">
 		</span>
 		
-				<span class="align">
-	  <label for="topicSel">Select a Topic</label>
-      <select class="form-control" id="topicSel" style="width: 200px;">
-		<?php
-			$i = 0;
-			while($i<100)
-			{
-				echo '<option>topic'.($i + 1).'</option>';
-				++$i;
-			}
-			?>
-      </select>
-	  </span>
-	  </center>
-	  <br>
-	  
-
-		
+		<span class="align">
+	    <label for="topicSel">Select a Topic</label>
+        <select class="form-control" id="topicSel" name="topic" style="width: 200px;">
+			<?php
+				
+				$topics = $dataAccess->queryTopic();
+				$tSize = sizeof($topics);
+				
+				for($i=0; $i<$tSize; ++$i)
+				{
+					echo '<option>'.$topics[$i].'</option>';
+				}
+				?>
+        </select>
+	    </span>
+	    </center>
+	    </br>
 		</form>
+		
 	  <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="">
 		<!-- Wrapper for slides -->
 		<div class="carousel-inner" role="listbox">
-		  <div class="item active">
-					<span class="textbar topbar"><div>Enjhbkjhvj,glish</div><div>English</div><div>English</div></span>
+<!-- 		  <div class="item active">
+					<span class="textbar topbar"><div>Enjhbkjhvj,glish</div><div>English</div></span>
 			<img src="images/ant.jpg" alt="ant" >
-					<span class="textbar bottombar"><div>English</div><div>English</div><div>English</div></span>
-		  </div>
-
-		  <div class="item">
-					<span class="textbar topbar"><div>Enjhbkjhvj,glish</div><div>English</div><div>English</div></span>
-			<img src="images/cat.jpg" alt="bread" >
-					<span class="textbar bottombar"><div>English</div><div>English</div><div>English</div></span>
-		  </div>
-		
-		  <div class="item">
-					<span class="textbar topbar"><div>Enjhbkjhvj,glish</div><div>English</div><div>English</div></span>
-			<img src="images/chicken.jpg" alt="chicken" >
-					<span class="textbar bottombar"><div>English</div><div>English</div><div>English</div></span>
-		  </div>
- 
-		  <div class="item">
-					<span class="textbar topbar"><div>Enjhbkjhvj,glish</div><div>English</div><div>English</div></span>
-			<img src="images/cereal.jpg" alt="cereal" >
-					<span class="textbar bottombar"><div>English</div><div>English</div><div>English</div></span>
-		  </div>
-		  </div>
+					<span class="textbar bottombar"><div>English</div><div>English</div></span>
+		  </div> -->
+		  
+		  	<?php
+				
+				
+				$wordSize = $dataAccess->wordSize();
+				for($i=0; $i<$wordSize; ++$i)
+				{
+					$topics = $dataAccess->getAttributes($i);
+					
+					if ($i == 0)
+					{
+						echo '<div class="item active">';
+					}
+					else
+					{
+						echo '<div class="item">';
+					}
+					echo  '<span class="textbar topbar"><div>'.$topics[1].'</div><div>'.$topics[2].'</div></span>
+						<img src="images/'.$topics[0].'" alt="'.$topics[3].'" >
+						<span class="textbar bottombar"><div>'.$topics[3].'</div><div>'.$topics[4].'</div></span>
+				    </div>';
+				}
+				
+				function checkImg()
+				{
+					
+				}
+			?>
 		<!-- Left and right controls -->
 		<a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
 		  <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>

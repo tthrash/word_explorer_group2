@@ -4,7 +4,6 @@ include 'db_configuration.php';
 
 $query = "SELECT * FROM word_list";
 $stmt = $db->prepare($query);
-//$stmt->bind_param('s', $searchterm);  
 $stmt->execute();
 $stmt->store_result();
 
