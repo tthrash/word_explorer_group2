@@ -1,10 +1,15 @@
 <?php
-	
-    DEFINE('DATABASE_HOST', 'localhost');
+	/*
+  DEFINE('DATABASE_HOST', 'localhost');
 	DEFINE('DATABASE_DATABASE', '   ');
 	DEFINE('DATABASE_USER', 'root');
 	DEFINE('DATABASE_PASSWORD', '   '); 
-
+	*/
+	DEFINE('DATABASE_HOST', 'localhost');
+	DEFINE('DATABASE_DATABASE', 'db_nam');
+	DEFINE('DATABASE_USER', 'username');
+	DEFINE('DATABASE_PASSWORD', 'password');
+	
 $db = new mysqli(DATABASE_HOST, DATABASE_USER, DATABASE_PASSWORD, DATABASE_DATABASE);
 if (mysqli_connect_errno()) {
    echo '<p>Error: Could not connect to database.<br/>

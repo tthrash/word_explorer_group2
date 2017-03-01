@@ -136,6 +136,7 @@ class dataUtility
 		
 		return $topics;
 	}
+	
 	public function wordSize()
 	{
 		return sizeof($this->langWordImage);
