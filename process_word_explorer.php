@@ -7,14 +7,25 @@ class dataUtility
 	private $langInEnglish = array();
 	private $langWord = array();
 	private $englishWord = array();
+	private $gujarathiWord = array();
+	private $malayalamWord = array();
+	private $teluguWord = array();
+	private $hindiWord = array();
+	private $kannadaWord = array();
 	
 	
 	public function getAttributes(int $i)
 	{
-		$attributes = array($this->langWordImage[$i], $this->englishInLang[$i], $this->langInEnglish[$i], 
-										$this->englishWord[$i], $this->langWord[$i]);
+		$attributes = array($this->langWordImage[$i], $this->englishInLang[$i], $this->langInEnglish[$i], $this->englishWord[$i], $this->langWord[$i]);
+		
 		// print_r($attributes);
 		return $attributes;
+	}
+	
+	public function getAltAttributes(int $i) {
+		$attributes = array($this->langWordImage[$i], $this->kannadaWord[$i], $this->gujarathiWord[$i], $this->malayalamWord[$i] ,$this->teluguWord[$i], $this->englishWord[$i], $this->hindiWord[$i]);
+		return $attributes;
+	
 	}
 	
 	public function setAttributes(int $key)
@@ -29,6 +40,7 @@ class dataUtility
 			$this->queryDatabase($key);
 		}
 	}
+	
 	
 		
 	private function queryDatabase(int $key)
@@ -102,7 +114,15 @@ class dataUtility
 		}
 		else if($key == 5)
 		{
-			
+			while($result->fetch()) {
+				array_push($this->langWordImage, $image);
+				array_push($this->kannadaWord, $kannada);
+				array_push($this->hindiWord, $hindi);
+				array_push($this->gujarathiWord, $gujarathi);
+				array_push($this->malayalamWord, $malayalam);
+				array_push($this->teluguWord, $telugu);
+				array_push($this->englishWord, $english);
+			}
 		}
 		
 	}
@@ -118,6 +138,8 @@ class dataUtility
 		}
 		
 	}
+	
+	
 	
 	public function queryTopic()
 	{
@@ -173,5 +195,29 @@ class dataUtility
 		}
 		
 		//header("Location: word_explorer.php");
+	}
+	
+	function getHeaderButton($name) {
+		$active = "";
+		if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+			if (isset($_POST[$name])) {
+				$active = "btn_active";
+			}
+		}
+		return '<span class="align">
+						<input type="submit" name="'.$name.'" alt="'.$name.' button" value="'.ucfirst($name).'" class="main_buttons ' .$active.'">
+					</span>';
+	}
+	
+	
+	function loadDefault() {
+		$string = "";
+		$string .= getHeaderButton('telugu');
+		$string .=getHeaderButton('hindi');
+		$string .=getHeaderButton('kannada');
+		$string .=getHeaderButton('gujarathi');
+		$string .=getHeaderButton('malayalam');
+		$string .=getHeaderButton('all');
+		return $string;
 	}
 ?>
