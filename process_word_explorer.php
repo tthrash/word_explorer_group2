@@ -193,8 +193,6 @@ class dataUtility
 			// assume all
 			$dataAccess->setAttributes(5);
 		}
-		
-		//header("Location: word_explorer.php");
 	}
 	
 	function getHeaderButton($name) {

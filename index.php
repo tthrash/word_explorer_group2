@@ -32,20 +32,20 @@ $stmt->bind_result($topic, $image, $english, $telugu, $hindi, $kannada, $gujarat
 	<div class="row">
 		<hr />
 		
-		<span class="icon_align">
+		<span class="align">
 		<form action="add_word.php" class="center">
-			<span class="icon_align"><h2>Welcome to Word Explorer</h2></span>
+			<span class="align"><h2>Welcome to Word Explorer</h2></span>
 			<input type="image" src="images/add.jpg" alt="submit" style="width: 22px;">
 		</form>
 		</span>
 		
-		<span class="icon_align">
+		<span class="align">
 		<form action="import.php">
 			<input type="submit" alt="import button" value="import" style="font-size: 150%;">
 		</form>
 		</span>
 		
-		<span class="icon_align">
+		<span class="align">
 		<form action="export.php">
 			<input type="submit" alt="export button" value="export" style="font-size: 150%;">
 		</form>
